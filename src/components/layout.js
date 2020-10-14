@@ -1,15 +1,24 @@
-import React from "react";
+import React from "react"
+import { Link } from "gatsby"
 
-import Navigation from "./navigation";
+import Navigation from "./navigation"
 
-export default const Layout = ({ children }) => (
-  <div style={{ margin: `3rem auto`, maxWidth: 650, padding: `0 1rem` }}>
-    <header style={{ marginBottom: `1.5rem` }}>
-      <Link to="/" style={{ textShadow: `none`, backgroundImage: `none` }}>
-        <h3 style={{ display: `inline` }}>Header</h3>
-      </Link>
-    </header>
-    <Navigation />
-    { children }
-  </div>
-);
+import ContextProvider from "../provider/ContextProvider"
+
+import "../index.css"
+
+const Layout = ({ children }) => (
+  <ContextProvider>
+    <div>
+      <header>
+        <Link to="/">
+          <h3>Header</h3>
+        </Link>
+      </header>
+      <Navigation />
+      {children}
+    </div>
+  </ContextProvider>
+)
+
+export default Layout
